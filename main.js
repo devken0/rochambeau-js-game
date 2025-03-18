@@ -34,7 +34,7 @@ function getRandomInt(min, max){
 }
 
 let userName = "Ken";
-let greetings = "Horray " + userName + ", your code runs!";
+let greetings = "Hooray " + userName + ", your code runs!";
 console.log(greetings);
 
 console.log(getRandomInt(1, 3));
