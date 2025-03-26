@@ -17,10 +17,26 @@ DEFINE getComputerChoice
     SET computerChoice to "scissors" 
   ENDIF
   RETURN computerChoice
+DEFINE getHumanChoice with intChoice
+  INIT humanChoiceInt
+  INIT humanChoice
+  IF humanChoiceInt is equal to 0 THEN
+    SET humanChoice to "rock"
+  ELSE IF 
+    SET humanChoice to "paper" 
+  ELSE IF
+    SET humanChoice to "scissors" 
+  ENDIF
+  RETURN humanChoice
 
 CALL getRandomInt with min and max as parameters
 CALL getComputerChoice
 */
+
+// Check if JavaScript is linked correctly
+// let userName = "Ken";
+// let greetings = "Hooray " + userName + ", your code runs!";
+// console.log(greetings);
 
 // Getting a random integer between two values.
 // It returns a random integer between the specified values. 
@@ -33,9 +49,36 @@ function getRandomInt(min, max){
   return randomInt;
 }
 
-let userName = "Ken";
-let greetings = "Hooray " + userName + ", your code runs!";
-console.log(greetings);
+function getComputerChoice(){
+  let randomInt = getRandomInt(0, 2);
+  let computerChoice;
 
-console.log(getRandomInt(1, 3));
+  switch (randomInt) {
+    case 0:
+      computerChoice = "rock";
+      break;
+    case 1:
+      computerChoice = "paper";
+      break;
+    case 2:
+      computerChoice = "scissors";
+      break;
+  }
+  return computerChoice;
+}
+
+function getHumanChoice(){
+  alert("1 = Rock\n2 = Paper\n3 = Scissors");
+  let humanChoiceInt = Number(prompt("Enter your choice: "));
+  let humanChoice;
+
+  if (humanChoiceInt == 1){
+    humanChoice = "rock";
+  } else if (humanChoiceInt == 2){
+    humanChoice = "paper";
+  } else if (humanChoiceInt == 3){
+    humanChoice = "scissors"
+  }
+  return humanChoice;
+}
 
