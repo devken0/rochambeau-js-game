@@ -79,7 +79,7 @@ DEFINE playGame
   IF humanScore > computerScore THEN
     PRINT "Congrats! You just won the game"
   ELSE
-    PRINT "OMG, I just won. Better luck next time!"
+    PRINT "Game over. Better luck next time!"
   ENDIF
 ENDFUNC  
 CALL playGame 
@@ -103,10 +103,9 @@ function getRandomInt(min, max){
 }
 
 function getComputerChoice(){
-  let randomInt = getRandomInt(0, 2);
+  const randomInt = getRandomInt(0, 2);
   let computerChoice;
 
-  // switch case conditional 
   switch (randomInt) {
     case 0:
       computerChoice = "rock";
@@ -126,17 +125,69 @@ function getHumanChoice(){
   return humanChoice;
 }
 
-function playGame(){
-  function playRound(humanChoice, computerChoice){
-    humanChoice = humanChoice.toLowerCase();
-    switch(humanChoice){
-      case "rock":
-        if(computerChoice == "rock"){
-          console.log("Draw!");
-        }
-      case "paper":
-      case "scissors":
-    }
+function getRoundWinner(humanChoice, computerChoice){
+  let roundWinner = "";
+  switch(humanChoice){
+    case "rock":
+      if(computerChoice == "rock"){
+        console.log("Draw!");
+      } else if(computerChoice == "paper"){
+        console.log("You lose! Paper beats Rock");
+        roundWinner = "Computer";
+      } else if(computerChoice == "scissors"){
+        console.log("You win! Rock beats Scissors");
+        roundWinner = "Human";
+      }
+    case "paper":
+      if(computerChoice == "rock"){
+        console.log("You win! Paper beats Rock");
+        roundWinner = "Human";
+      } else if(computerChoice == "paper"){
+        console.log("Draw!");
+      } else if(computerChoice == "scissors"){
+        console.log("You lose! Scissors beats Paper");
+        roundWinner = "Computer";
+      }
+    case "scissors":
+      if(computerChoice == "rock"){
+        console.log("You lose! Rock beats Scissors");
+        roundWinner = "Computer";
+      } else if(computerChoice == "paper"){
+        console.log("You win! Scissors beats Paper");
+        roundWinner = "Human";
+      } else if(computerChoice == "scissors"){
+        console.log("Draw!");
+      }
+  return roundWinner;
   }
 }
 
+function playGame(){
+  function playRound(humanChoice, computerChoice){
+    humanChoice = humanChoice.toLowerCase();
+    const roundWinner = getRoundWinner(humanChoice, computerChoice);
+    if (roundWinner == "human"){
+      humanScore == ++humanScore;
+    } else {
+      computerScore == ++computerScore;
+    }
+  }
+  let humanScore = 0;
+  let computerScore = 0;
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+
+  for(let i = 0; i < 5; i++){
+    playRound(humanSelection, computerSelection);
+  }
+  
+  if(humanScore == computerScore){
+    console.log("Game is a draw! You know me too well");
+  } else if(humanScore > computerScore){
+    console.log("Congrats! You just won the game");
+  } else {
+    console.log("Game over. Better luck next time!");
+  }
+}
+
+playGame();
