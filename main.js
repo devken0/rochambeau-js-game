@@ -169,19 +169,21 @@ function playGame(){
   function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toLowerCase();
     const roundWinner = getRoundWinner(humanChoice, computerChoice);
-    if (roundWinner == "human"){
+    if (roundWinner == "Human"){
       humanScore == ++humanScore;
     } else {
       computerScore == ++computerScore;
     }
   }
+
   let humanScore = 0;
   let computerScore = 0;
 
-  for(let i = 0; i < 5; i++){
+  for(let i = 0; i < 5; ++i){
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
+    console.log(humanScore + "/" + computerScore);
   }
   
   if(humanScore == computerScore){
