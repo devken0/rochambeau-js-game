@@ -3,68 +3,86 @@ The program: Build a console-based rock paper scissors game
 
 ===== PSEUDOCODE ====
 
-DEFINE getRandomInt with min and max as parameters
+FUNC getRandomInt with min and max 
   INIT minCeiled 
   INIT maxFloored
   INIT randomInt
   RETURN randomInt
-DEFINE getComputerChoice
-  INIT randomInt to CALL getRandomInt with 0, 2 as parameters
+ENDFUNC
+FUNC getComputerChoice
+  INIT randomInt to CALL getRandomInt with 0 and 2
   INIT computerChoice
-  SWITCH for randomInt 
-    CASE 0 
+  CASE for randomInt 
+    condition 0 
       SET computerChoice to "rock"
-    CASE 1 
+    condition 1 
       SET computerChoice to "paper"
-    CASE 2 
+    condition 2 
       SET computerChoice to "scissors"
-  ENDSWITCH
+  ENDCASE 
   RETURN computerChoice
-DEFINE getHumanChoice 
-  INIT humanChoice to prompt for input 
+ENDFUNC
+FUNC getHumanChoice 
+  INIT humanChoice to READ string
   RETURN humanChoice
-DEFINE playRound with humanChoice and computerChoice as parameters
-  SET humanChoice to lowercase
-  SWITCH for humanChoice 
-    CASE "rock"
-      IF computerChoice is "rock" THEN
-        PRINT "Draw!" 
-      ELSE IF computerChoice is "paper" THEN
-        PRINT "You lose! Paper beats Rock"
-        SET computerScore to increment
-      ELSE IF computerChoice is "scissors" THEN
-        PRINT "You win! Rock beats Scissors"
-        SET humanScore to increment
-      ENDIF
-    CASE "paper"
-      IF computerChoice is "rock" THEN
-        PRINT "You win! Paper beats Rock" 
-        SET humanScore to increment
-      ELSE IF computerChoice is "paper" THEN
-        PRINT "Draw!"
-      ELSE IF computerChoice is "scissors" THEN
-        PRINT "You lose! Scissors beats Paper"
-        SET computerScore to increment
-      ENDIF
-    CASE "scissors"
-      IF computerChoice is "rock" THEN
-        PRINT "You lose! Rock beats Scissors" 
-        SET computerScore to increment
-      ELSE IF computerChoice is "paper" THEN
-        PRINT "You win! Scissors beat Paper"
-        SET humanScore to increment
-      ELSE IF computerChoice is "scissors" THEN
-        PRINT "Draw!"
-      ENDIF
-  ENDSWITCH
+ENDFUNC
+DEFINE playGame
+  DEFINE playRound with humanChoice and computerChoice 
+    SET humanChoice to lowercase
+    CASE for humanChoice 
+      condition "rock"
+        IF computerChoice is "rock" THEN
+          PRINT "Draw!" 
+        ELSE IF computerChoice is "paper" THEN
+          PRINT "You lose! Paper beats Rock"
+          SET computerScore to increment
+        ELSE IF computerChoice is "scissors" THEN
+          PRINT "You win! Rock beats Scissors"
+          SET humanScore to increment
+        ENDIF
+      condition "paper"
+        IF computerChoice is "rock" THEN
+          PRINT "You win! Paper beats Rock" 
+          SET humanScore to increment
+        ELSE IF computerChoice is "paper" THEN
+          PRINT "Draw!"
+        ELSE IF computerChoice is "scissors" THEN
+          PRINT "You lose! Scissors beats Paper"
+          SET computerScore to increment
+        ENDIF
+      condition "scissors"
+        IF computerChoice is "rock" THEN
+          PRINT "You lose! Rock beats Scissors" 
+          SET computerScore to increment
+        ELSE IF computerChoice is "paper" THEN
+          PRINT "You win! Scissors beat Paper"
+          SET humanScore to increment
+        ELSE IF computerChoice is "scissors" THEN
+          PRINT "Draw!"
+        ENDIF
+    ENDSWITCH
+  ENDFUNC 
+
+  INIT humanScore to 0
+  INIT computerScore to 0
+
+  INIT humanSelection to CALL getHumanChoice
+  INIT computerSelection to CALL getComputerChoice
   
-INIT humanScore to 0
-INIT computerScore to 0
-
-INIT humanSelection to CALL getHumanChoice
-INIT computerSelection to CALL getComputerChoice
-
-CALL playRound with humanSelection and computerSelection
+  INIT i to 0
+  FOR i is less than 5
+    CALL playRound with humanSelection and computerSelection
+  ENDFOR  
+  IF humanScore == computerScore THEN
+    PRINT "Game is a Draw! You know me too well"
+  ENDIF 
+  IF humanScore > computerScore THEN
+    PRINT "Congrats! You just won the game"
+  ELSE
+    PRINT "OMG, I just won. Better luck next time!"
+  ENDIF
+ENDFUNC  
+CALL playGame 
 
 */
 
@@ -104,8 +122,21 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-  alert("Rock Paper Scissors!");
   let humanChoice = String(prompt("Enter your choice: "));
   return humanChoice;
+}
+
+function playGame(){
+  function playRound(humanChoice, computerChoice){
+    humanChoice = humanChoice.toLowerCase();
+    switch(humanChoice){
+      case "rock":
+        if(computerChoice == "rock"){
+          console.log("Draw!");
+        }
+      case "paper":
+      case "scissors":
+    }
+  }
 }
 
