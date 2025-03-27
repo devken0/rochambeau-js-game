@@ -171,8 +171,10 @@ function playGame(){
     const roundWinner = getRoundWinner(humanChoice, computerChoice);
     if (roundWinner == "Human"){
       humanScore == ++humanScore;
-    } else {
+    } else if (roundWinner == "Computer")  {
       computerScore == ++computerScore;
+    } else {
+      roundWinner = "";
     }
   }
 
