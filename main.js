@@ -86,11 +86,6 @@ CALL playGame
 
 */
 
-// Check if JavaScript is linked correctly
-// let userName = "Ken";
-// let greetings = "Hooray " + userName + ", your code runs!";
-// console.log(greetings);
-
 // Getting a random integer between two values.
 // It returns a random integer between the specified values. 
 // The value is no lower than min (or the next integer greater than min if min isn't an integer), 
