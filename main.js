@@ -129,9 +129,7 @@ function getRoundWinner(humanChoice, computerChoice){
   let roundWinner = "";
   switch(humanChoice){
     case "rock":
-      if(computerChoice == "rock"){
-        console.log("Draw!");
-      } else if(computerChoice == "paper"){
+      if(computerChoice == "paper"){
         console.log("You lose! Paper beats Rock");
         roundWinner = "Computer";
       } else if(computerChoice == "scissors"){
@@ -143,8 +141,6 @@ function getRoundWinner(humanChoice, computerChoice){
       if(computerChoice == "rock"){
         console.log("You win! Paper beats Rock");
         roundWinner = "Human";
-      } else if(computerChoice == "paper"){
-        console.log("Draw!");
       } else if(computerChoice == "scissors"){
         console.log("You lose! Scissors beats Paper");
         roundWinner = "Computer";
@@ -157,8 +153,6 @@ function getRoundWinner(humanChoice, computerChoice){
       } else if(computerChoice == "paper"){
         console.log("You win! Scissors beats Paper");
         roundWinner = "Human";
-      } else if(computerChoice == "scissors"){
-        console.log("Draw!");
       }
       break;
   }
@@ -173,8 +167,8 @@ function playGame(){
       humanScore == ++humanScore;
     } else if (roundWinner == "Computer")  {
       computerScore == ++computerScore;
-    } else {
-      roundWinner = "";
+    } else if (roundWinner == ""){
+      console.log("Draw!");
     }
   }
 
