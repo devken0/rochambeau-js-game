@@ -187,7 +187,7 @@ function playGame(){
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-    console.log("You: " + humanScore + "\tCOM: " + computerScore + "\tRound: " + i + "/5");
+    console.log("You: " + humanScore + "\t\tComputer: " + computerScore + "\t\tRound: " + i + "/5");
   }
   if(humanScore == computerScore){
     console.log("Game is a draw! You know me too well");
