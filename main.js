@@ -138,6 +138,7 @@ function getRoundWinner(humanChoice, computerChoice){
         console.log("You win! Rock beats Scissors");
         roundWinner = "Human";
       }
+      break;
     case "paper":
       if(computerChoice == "rock"){
         console.log("You win! Paper beats Rock");
@@ -148,6 +149,7 @@ function getRoundWinner(humanChoice, computerChoice){
         console.log("You lose! Scissors beats Paper");
         roundWinner = "Computer";
       }
+      break;
     case "scissors":
       if(computerChoice == "rock"){
         console.log("You lose! Rock beats Scissors");
@@ -158,8 +160,9 @@ function getRoundWinner(humanChoice, computerChoice){
       } else if(computerChoice == "scissors"){
         console.log("Draw!");
       }
-  return roundWinner;
+      break;
   }
+  return roundWinner;
 }
 
 function playGame(){
@@ -174,10 +177,10 @@ function playGame(){
   }
   let humanScore = 0;
   let computerScore = 0;
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
 
   for(let i = 0; i < 5; i++){
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
   }
   
