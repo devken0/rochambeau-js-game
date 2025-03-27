@@ -183,13 +183,12 @@ function playGame(){
   let humanScore = 0;
   let computerScore = 0;
 
-  for(let i = 0; i < 5; ++i){
+  for(let i = 1; i < 6; ++i){
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-    console.log(humanScore + "/" + computerScore);
+    console.log("You: " + humanScore + "\tCOM: " + computerScore + "\tRound: " + i + "/5");
   }
-  
   if(humanScore == computerScore){
     console.log("Game is a draw! You know me too well");
   } else if(humanScore > computerScore){
