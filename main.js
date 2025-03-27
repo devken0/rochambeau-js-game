@@ -190,11 +190,11 @@ function playGame(){
     console.log("You: " + humanScore + "\t\tComputer: " + computerScore + "\t\tRound: " + i + "/5");
   }
   if(humanScore == computerScore){
-    console.log("Game is a draw! You know me too well");
+    alert("Game is a draw! You know me too well");
   } else if(humanScore > computerScore){
-    console.log("Congrats! You just won the game");
+    alert("Congrats! You just won the game");
   } else {
-    console.log("Game over. Better luck next time!");
+    alert("Game over. Better luck next time!");
   }
 }
 
