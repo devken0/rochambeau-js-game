@@ -1,3 +1,5 @@
-### About  
+## rochambeau-js-game
 
-This repository is for the project in Odin Projects' Foundation course. 
+A Rock Paper Scissors Game in JavaScript
+
+Project page: https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
