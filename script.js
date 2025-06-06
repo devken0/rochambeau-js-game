@@ -73,6 +73,10 @@ function resetGame(){
   // Re-enable buttons
   const allButtons = buttons.querySelectorAll("button");
   allButtons.forEach(btn => btn.disabled = false);
+
+  // Reset colors
+  playerScoreDisplay.style.color = "black";
+  computerScoreDisplay.style.color = "black";
 }
 
 function playRound(playerSelection){
