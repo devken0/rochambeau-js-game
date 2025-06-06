@@ -69,22 +69,8 @@ function resetGame(){
   if (existingReset){
     existingReset.remove();
   }
+    
 
-  if (!buttons){
-    const div = document.createElement("div");
-    const btn = document.createElement("b");
-    const quit = document.body.lastChild;
-
-    div.setAttribute("id", "buttons");
-    document.body.insertBefore(div, quit);
-
-    btn.setAttribute("id", "rock");
-    buttons.appendChild(btn);
-    btn.setAttribute("id", "paper");
-    buttons.appendChild(btn);
-    btn.setAttribute("id", "scissors");
-    buttons.appendChild(btn);
-  }
 }
 
 function playRound(playerSelection){
