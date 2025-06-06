@@ -64,12 +64,6 @@ function resetGame(){
   scores.innerHTML = '';
   gameWinner.innerHTML = '';
 
-  // Remove reset button if it exists
-  const existingReset = document.querySelector("#resetBtn");
-  if (existingReset){
-    existingReset.remove();
-  }
-
   // Re-enable buttons
   const allButtons = buttons.querySelectorAll("button");
   allButtons.forEach(btn => btn.disabled = false);
