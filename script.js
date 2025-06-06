@@ -91,8 +91,9 @@ function playRound(playerSelection){
   rounds.textContent = `Player chose ${playerSelection}, Computer chose ${computerChoice}`;  
   scores.textContent = "Player: ";
   playerScoreDisplay.textContent = `${playerScore}`;
+  playerScoreDisplay.style.paddingRight = "10px";
   scores.appendChild(playerScoreDisplay);
-  const spacer = document.createTextNode("  Computer: ");
+  const spacer = document.createTextNode("Computer: ");
   scores.appendChild(spacer);
   computerScoreDisplay.textContent = `${computerScore}`;
   scores.appendChild(computerScoreDisplay);
