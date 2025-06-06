@@ -69,8 +69,10 @@ function resetGame(){
   if (existingReset){
     existingReset.remove();
   }
-    
 
+  // Re-enable buttons
+  const allButtons = buttons.querySelectorAll("button");
+  allButtons.forEach(btn => btn.disabled = false);
 }
 
 function playRound(playerSelection){
