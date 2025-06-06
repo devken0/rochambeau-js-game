@@ -63,10 +63,13 @@ function resetGame(){
   rounds.textContent = "Game has been reset, choose your pick!";
   scores.innerHTML = '';
   gameWinner.innerHTML = '';
-  const element = document.querySelector("#resetBtn");
-  if (element){
-    element.remove();
+
+  // Remove reset button if it exists
+  const existingReset = document.querySelector("#resetBtn");
+  if (existingReset){
+    existingReset.remove();
   }
+
   if (!buttons){
     const div = document.createElement("div");
     const btn = document.createElement("b");
