@@ -105,6 +105,7 @@ function playRound(playerSelection){
     console.log(playerScore > computerScore ? "You win the game!" : "Computer wins!");
     const allButtons = buttons.querySelectorAll("button");
     allButtons.forEach(btn => btn.disabled = true);
+    resetBtn.disabled = false;
     playerScore > computerScore ? gameWinner.textContent = "You win!" : gameWinner.textContent = "You lose!";
     playerScore > computerScore ? gameWinner.style.color = "green" : gameWinner.style.color = "red";
     //document.body.appendChild(resetBtn);
